@@ -11,6 +11,8 @@
 makeCacheMatrix <- function(x = matrix()) {
   minverse <- NULL
   set <- function(y){
+    # Here "<<-" is used to assign a value to an object
+    # in an environment that is different from the current environment.
     x <<- y
     minverse <<- NULL
   }
@@ -33,12 +35,17 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   m_inverse <- x$get_minverse()
+  # "if" statement checks if the inverse has already been calculated.
+  # If so, retrieves cached inverse and skips computations of the inverse. 
   if(!is.null(m_inverse)){
     message("getting cached data")
     return(m_inverse)
   }
+  # If no inverse cached, computes inverse below. 
   data <- x$get()
   m_inverse <- solve(data,...)
+  # Sets the inverse in the cache using the set_inverse function. 
   x$set_minverse(m_inverse)
+  # Return matrix inverse. 
   m_inverse
 }
