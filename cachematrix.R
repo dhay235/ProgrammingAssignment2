@@ -1,3 +1,7 @@
+## Note that both the comments and code given below is closely modelled
+## from the examples and descriptions of the "makeVector" and "cachemean"
+## functions given on the programming 2 assignment page. 
+
 ## Below are two functions that are used to create a special object that
 ## stores a matrix and cache's its inverse. 
 
